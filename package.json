@@ -1,6 +1,6 @@
 {
-  "homepage": "https://rogigs.github.io",
-  "name": "developerfolio",
+  "homepage": "https://rogigs.github.io/developerFolio",
+  "name": "developerFolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
