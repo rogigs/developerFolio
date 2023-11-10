@@ -24,23 +24,19 @@ if (USE_GITHUB_DATA === "true") {
   console.log(`Fetching profile data for ${GITHUB_USERNAME}`);
   var data = JSON.stringify({
     query: `
-{
-  user(login:"${GITHUB_USERNAME}") { 
-    name
-    bio
-    avatarUrl
-    location
-    pinnedItems(first: 6, types: [REPOSITORY]) {
-      totalCount
-      edges {
-          node {
-            ... on Repository {
+      query($username: String!) {
+        user(login: $username) { 
+          name
+          bio
+          avatarUrl
+          location
+          repositoriesContributedTo(first: 5, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST], includeUserRepositories: false) {
+            totalCount
+            nodes {
               name
               description
               forkCount
-              stargazers {
-                totalCount
-              }
+              stargazerCount
               url
               id
               diskUsage
@@ -50,12 +46,35 @@ if (USE_GITHUB_DATA === "true") {
               }
             }
           }
+          pinnedItems(first: 6, types: [REPOSITORY]) {
+            edges {
+              node {
+                ... on Repository {
+                  name
+                  description
+                  forkCount
+                  stargazers {
+                    totalCount
+                  }
+                  url
+                  id
+                  diskUsage
+                  primaryLanguage {
+                    name
+                    color
+                  }
+                }
+              }
+            }
+          }
         }
       }
+    `,
+    variables: {
+      username: GITHUB_USERNAME
     }
-}
-`
   });
+
   const default_options = {
     hostname: "api.github.com",
     path: "/graphql",
