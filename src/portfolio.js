@@ -160,7 +160,7 @@ const techStack = {
 // Work experience section
 
 const workExperiences = {
-  display: true, //Set it to true to show workExperiences Section
+  display: true, // Set it to true to show workExperiences Section
   experience: [
     {
       role: "Software Engineer Front End",
@@ -169,22 +169,45 @@ const workExperiences = {
         "https://media.licdn.com/dms/image/C4D0BAQHc-kpH9aocSw/company-logo_100_100/0/1630574382555/juntos_somos_mais_logo?e=1707350400&v=beta&t=BL3LCSvOWKw60q1FvOfdbgrwoHJpbblHFnP9o5tktN4",
       date: "May 2021 – January 2023",
       descBullets: [
-        "Integração como membro ativo de um time de desenvolvimento ágil, seguindo metodologias como Scrum e Kanban",
-        "Realização de code reviews diárias, fornecendo feedback construtivo aos colegas de equipe e garantindo a qualidade do código e aderência às boas práticas de programação.",
-        "Acompanhamento e monitoramento das aplicações, utilizando as tecnologias Sentry e Kibana",
-        "Contribuição para a construção de funcionalidade para a plataforma web e mobile, utilizando as tecnologias React(com Javascript e Typescript), Next.js, React Native, Jest, testing-libray e Google Analytics.",
-        "Contribuição com o open source (https://github.com/juntossomosmais/frontend-guideline)"
+        "Integration as an active member of an agile development team, following methodologies such as Scrum and Kanban",
+        "Conducting daily code reviews, providing constructive feedback to team members, and ensuring code quality and adherence to programming best practices.",
+        <>
+          Monitoring and tracking applications using technologies such as{" "}
+          <strong>Sentry</strong> and <strong>Kibana</strong>
+        </>,
+        <>
+          Contributing to the construction of features for the web and mobile
+          platform, using technologies such as <strong>React</strong> (with{" "}
+          <strong>JavaScript</strong> and <strong>TypeScript</strong>),{" "}
+          <strong>Next.js</strong>, <strong>React Native</strong>,{" "}
+          <strong>Jest</strong>, <strong>testing-library</strong>, and{" "}
+          <strong>Google Analytics</strong>.
+        </>,
+        <>
+          Contributing to open source:{" "}
+          <a href="https://github.com/juntossomosmais/frontend-guideline">
+            https://github.com/juntossomosmais/frontend-guideline
+          </a>
+        </>
       ]
     },
     {
-      role: "Web development Intern",
+      role: "Web Development Intern",
       company: "Cromai",
       companylogo:
         "https://media.licdn.com/dms/image/C4D0BAQErtma_73Xbdw/company-logo_100_100/0/1675793211338/cromai_logo?e=1707350400&v=beta&t=zavJABHwNlSaPsTt8ZqP40fEgg30Ma10mL0fjCJxuMA",
       date: "May 2017 – May 2018",
       descBullets: [
-        "Integração como membro ativo de um time de desenvolvimento ágil, seguindo metodologias como Scrum e Kanban",
-        "Contribuição para a construção de uma plataforma web e desktop, utilizando tecnologias React, Electron, Redux.js, Jest, Enzyme, Material UI, Flask e PyTest. Durante minha atuação, desempenhei um papel chave no desenvolvimento e implementação de diversas funcionalidades, incluindo:"
+        "Integration as an active member of an agile development team, following methodologies such as Scrum and Kanban",
+        <>
+          Contributing to the construction of a web and desktop platform, using
+          technologies such as <strong>React</strong>, <strong>Electron</strong>
+          , <strong>Redux.js</strong>, <strong>Jest</strong>,{" "}
+          <strong>Enzyme</strong>, <strong>Material UI</strong>,{" "}
+          <strong>Flask</strong>, and <strong>PyTest</strong>. During my tenure,
+          I played a key role in the development and implementation of various
+          features, including:
+        </>
       ]
     }
   ]
@@ -363,7 +386,7 @@ const twitterDetails = {
   display: false // Set true to display this section, defaults to false
 };
 
-const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
+const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
   illustration,
