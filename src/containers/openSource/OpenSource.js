@@ -18,7 +18,7 @@ export default function OpenSource() {
 
   useEffect(() => {
     const getRepoData = () => {
-      fetch(`${packageJson}/profile.json`)
+      fetch(`${packageJson.homepage}/profile.json`)
         .then(result => {
           if (result.ok) {
             return result.json();
