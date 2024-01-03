@@ -188,6 +188,10 @@ const workExperiences = {
           <a href="https://github.com/juntossomosmais/frontend-guideline">
             https://github.com/juntossomosmais/frontend-guideline
           </a>
+        </>,
+        <>
+          Contribution as a Front End mentor in the ConstruDelas developer
+          training project
         </>
       ]
     },
