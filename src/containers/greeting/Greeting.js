@@ -9,9 +9,14 @@ import Button from "../../components/button/Button";
 
 import {illustration, greeting} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
+import {usePortfolio} from "../../hooks/usePortofolio";
 
 export default function Greeting() {
   const {isDark} = useContext(StyleContext);
+  const {texts, handleChangeLanguage} = usePortfolio();
+
+  const {message} = texts("home");
+
   if (!greeting.displayGreeting) {
     return null;
   }
@@ -25,14 +30,13 @@ export default function Greeting() {
                 className={isDark ? "dark-mode greeting-text" : "greeting-text"}
               >
                 {" "}
-                {greeting.title}{" "}
-                <span className="wave-emoji">{emoji("👋")}</span>
+                {message} <span className="wave-emoji">{emoji("👋")}</span>
                 <div className="greeting-languages">
-                  <div>
+                  <div onClick={handleChangeLanguage("pt-BR")}>
                     <i className="fas fa-flag"></i>
                     <p>Pt-Br</p>
                   </div>
-                  <div>
+                  <div onClick={handleChangeLanguage("en-US")}>
                     <i className="fas fa-flag-usa"></i>
                     <p>Eng</p>
                   </div>
