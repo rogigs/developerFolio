@@ -1,16 +1,34 @@
 import React from "react";
 import "./SocialMedia.scss";
-import {socialMediaLinks} from "../../portfolio";
+import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS, SHOW_CONTAINER} from "../../utils/containers";
 
-export default function socialMedia() {
-  if (!socialMediaLinks.display) {
+export default function SocialMedia() {
+  const {texts, language} = usePortfolio();
+  console.log("🚀 ~ SocialMedia ~ texts:", language);
+  const {
+    github,
+    linkedin,
+    gmail,
+    gitlab,
+    facebook,
+    instagram,
+    kaggle,
+    medium,
+    stackoverflow,
+    twitter
+  } = texts(CONTAINERS.SOCIAL_MEDIA_LINKS) || {};
+
+  console.log(github);
+  if (!SHOW_CONTAINER[CONTAINERS.SOCIAL_MEDIA_LINKS]) {
     return null;
   }
+
   return (
     <div className="social-media-div">
-      {socialMediaLinks.github ? (
+      {github ? (
         <a
-          href={socialMediaLinks.github}
+          href={github}
           className="icon-button github"
           target="_blank"
           rel="noopener noreferrer"
@@ -20,9 +38,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.linkedin ? (
+      {linkedin ? (
         <a
-          href={socialMediaLinks.linkedin}
+          href={linkedin}
           className="icon-button linkedin"
           target="_blank"
           rel="noopener noreferrer"
@@ -32,9 +50,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.gmail ? (
+      {gmail ? (
         <a
-          href={`mailto:${socialMediaLinks.gmail}`}
+          href={`mailto:${gmail}`}
           className="icon-button google"
           target="_blank"
           rel="noopener noreferrer"
@@ -44,9 +62,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.gitlab ? (
+      {gitlab ? (
         <a
-          href={socialMediaLinks.gitlab}
+          href={gitlab}
           className="icon-button gitlab"
           target="_blank"
           rel="noopener noreferrer"
@@ -56,9 +74,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.facebook ? (
+      {facebook ? (
         <a
-          href={socialMediaLinks.facebook}
+          href={facebook}
           className="icon-button facebook"
           target="_blank"
           rel="noopener noreferrer"
@@ -68,9 +86,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.instagram ? (
+      {instagram ? (
         <a
-          href={socialMediaLinks.instagram}
+          href={instagram}
           className="icon-button instagram"
           target="_blank"
           rel="noopener noreferrer"
@@ -80,9 +98,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.twitter ? (
+      {twitter ? (
         <a
-          href={socialMediaLinks.twitter}
+          href={twitter}
           className="icon-button twitter"
           target="_blank"
           rel="noopener noreferrer"
@@ -92,9 +110,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.medium ? (
+      {medium ? (
         <a
-          href={socialMediaLinks.medium}
+          href={medium}
           className="icon-button medium"
           target="_blank"
           rel="noopener noreferrer"
@@ -104,9 +122,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.stackoverflow ? (
+      {stackoverflow ? (
         <a
-          href={socialMediaLinks.stackoverflow}
+          href={stackoverflow}
           className="icon-button stack-overflow"
           target="_blank"
           rel="noopener noreferrer"
@@ -116,9 +134,9 @@ export default function socialMedia() {
         </a>
       ) : null}
 
-      {socialMediaLinks.kaggle ? (
+      {kaggle ? (
         <a
-          href={socialMediaLinks.kaggle}
+          href={kaggle}
           className="icon-button kaggle"
           target="_blank"
           rel="noopener noreferrer"

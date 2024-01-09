@@ -7,19 +7,22 @@ import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import Button from "../../components/button/Button";
 
-import {illustration, greeting} from "../../portfolio";
+import {illustration} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS, SHOW_CONTAINER} from "../../utils/containers";
 
 export default function Greeting() {
   const {isDark} = useContext(StyleContext);
   const {texts, handleChangeLanguage} = usePortfolio();
 
-  const {message} = texts("home");
+  const {title, subTitle, resumeLink} = texts(CONTAINERS.GREETING) || {};
+  const {contactMe} = texts(CONTAINERS.HEADER) || {};
 
-  if (!greeting.displayGreeting) {
+  if (!SHOW_CONTAINER[CONTAINERS.GREETING]) {
     return null;
   }
+
   return (
     <Fade bottom duration={1000} distance="40px">
       <div className="greet-main" id="greeting">
@@ -29,16 +32,15 @@ export default function Greeting() {
               <h1
                 className={isDark ? "dark-mode greeting-text" : "greeting-text"}
               >
-                {" "}
-                {message} <span className="wave-emoji">{emoji("👋")}</span>
+                {title} <span className="wave-emoji">{emoji("👋")}</span>
                 <div className="greeting-languages">
                   <div onClick={handleChangeLanguage("pt-BR")}>
                     <i className="fas fa-flag"></i>
-                    <p>Pt-Br</p>
+                    <p>pt-BR</p>
                   </div>
                   <div onClick={handleChangeLanguage("en-US")}>
                     <i className="fas fa-flag-usa"></i>
-                    <p>Eng</p>
+                    <p>en-US</p>
                   </div>
                 </div>
               </h1>
@@ -49,16 +51,17 @@ export default function Greeting() {
                     : "greeting-text-p subTitle"
                 }
               >
-                {greeting.subTitle}
+                {emoji(subTitle || "")}
               </p>
               <SocialMedia />
+
               <div className="button-greeting-div">
-                <Button text="Contact me" href="#contact" />
-                {greeting.resumeLink && (
+                <Button text={contactMe} href="#contact" />
+                {resumeLink && (
                   <Button
                     text="See my resume"
                     newTab={true}
-                    href={greeting.resumeLink}
+                    href={resumeLink}
                   />
                 )}
               </div>

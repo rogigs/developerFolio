@@ -1,24 +1,31 @@
 import React from "react";
 import "./GithubProfileCard.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import {contactInfo, isHireable} from "../../portfolio";
+import {isHireable} from "../../portfolio";
 import emoji from "react-easy-emoji";
 import {Fade} from "react-reveal";
+import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS} from "../../utils/containers";
 
+// TODO: Change all translators
 export default function GithubProfileCard({prof}) {
+  const {texts} = usePortfolio();
+  const {title, subtitle} = texts(CONTAINERS.CONTACT_INFO) || {};
+
   if (isHireable) {
     prof.hireable = "Yes";
   } else {
     prof.hireable = "No";
   }
+
   return (
     <Fade bottom duration={1000} distance="20px">
       <div className="main" id="contact">
-        <h1 className="prof-title">Reach Out to me!</h1>
+        <h1 className="prof-title">{emoji(title)}</h1>
         <div className="row">
           <div className="main-content-profile">
             <div className="blog-header">
-              <p className="subTitle blog-subtitle">{contactInfo.subtitle}</p>
+              <p className="subTitle blog-subtitle">{subtitle}</p>
             </div>
             <h2 className="bio-text">"{emoji(String(prof.bio))}"</h2>
             {prof.location !== null && (

@@ -5,13 +5,19 @@ import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
 import packageJson from "../../../package.json";
+import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS} from "../../utils/containers";
+
+const GithubRepoCard = lazy(() =>
+  import("../../components/githubRepoCard/GithubRepoCard")
+);
+const FailedLoading = () => null;
+const renderLoader = () => <Loading />;
 
 export default function OpenSource() {
-  const GithubRepoCard = lazy(() =>
-    import("../../components/githubRepoCard/GithubRepoCard")
-  );
-  const FailedLoading = () => null;
-  const renderLoader = () => <Loading />;
+  const {texts} = usePortfolio();
+  const {title, textButton} = texts(CONTAINERS.CONTRIBUTIONS_OPEN_SOURCE) || {};
+
   const [repo, setrepo] = useState([]);
   // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
@@ -49,9 +55,7 @@ export default function OpenSource() {
     return (
       <Suspense fallback={renderLoader()}>
         <div className="main" id="opensource">
-          <h1 className="project-title">
-            Contributions to Open Source Projects
-          </h1>
+          <h1 className="project-title">{title}</h1>
           <div className="repo-cards-div-main">
             {repo.map((v, i) => {
               if (!v) {
@@ -63,7 +67,7 @@ export default function OpenSource() {
             })}
           </div>
           <Button
-            text={"More Projects"}
+            text={textButton}
             className="project-button"
             href={socialMediaLinks.github}
             newTab={true}

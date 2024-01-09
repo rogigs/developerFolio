@@ -5,16 +5,23 @@ import {openSource, socialMediaLinks} from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import Loading from "../../containers/loading/Loading";
 import packageJson from "../../../package.json";
+import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS} from "../../utils/containers";
+
+const GithubRepoCard = lazy(() =>
+  import("../../components/githubRepoCard/GithubRepoCard")
+);
+
+const FailedLoading = () => null;
+const renderLoader = () => <Loading />;
 
 export default function Projects() {
-  const GithubRepoCard = lazy(() =>
-    import("../../components/githubRepoCard/GithubRepoCard")
-  );
-  const FailedLoading = () => null;
-  const renderLoader = () => <Loading />;
   const [repo, setrepo] = useState([]);
+  const {texts} = usePortfolio();
   // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
+
+  const {title, textButton} = texts(CONTAINERS.PROJECTS_GITHUB) || {};
 
   useEffect(() => {
     const getRepoData = () => {
@@ -48,7 +55,7 @@ export default function Projects() {
     return (
       <Suspense fallback={renderLoader()}>
         <div className="main" id="opensource">
-          <h1 className="project-title">Projects GitHub</h1>
+          <h1 className="project-title">{title}</h1>
           <div className="repo-cards-div-main">
             {repo.map((v, i) => {
               if (!v) {
@@ -62,7 +69,7 @@ export default function Projects() {
             })}
           </div>
           <Button
-            text={"More Projects"}
+            text={textButton}
             className="project-button"
             href={socialMediaLinks.github}
             newTab={true}

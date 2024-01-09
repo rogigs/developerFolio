@@ -3,6 +3,7 @@ import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
 
 export default function ExperienceCard({cardInfo, isDark}) {
+  console.log("🚀 ~ ExperienceCard ~ cardInfo:", cardInfo);
   const [colorArrays, setColorArrays] = useState([]);
   const imgRef = createRef();
 
@@ -18,16 +19,11 @@ export default function ExperienceCard({cardInfo, isDark}) {
   }
 
   const GetDescBullets = ({descBullets, isDark}) => {
-    return descBullets
-      ? descBullets.map((item, i) => (
-          <li
-            key={i}
-            className={isDark ? "subTitle dark-mode-text" : "subTitle"}
-          >
-            {item}
-          </li>
-        ))
-      : null;
+    return descBullets?.map((item, i) => (
+      <li key={i} className={isDark ? "subTitle dark-mode-text" : "subTitle"}>
+        {item}
+      </li>
+    ));
   };
 
   return (
@@ -76,7 +72,8 @@ export default function ExperienceCard({cardInfo, isDark}) {
           {cardInfo.desc}
         </p>
         <ul>
-          <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
+          {/* TODO: add interpolation HTML TAGS */}
+          {/* <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} /> */}
         </ul>
       </div>
     </div>

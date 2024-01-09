@@ -55,14 +55,20 @@
 
 .greeting-languages div i {
   cursor: pointer;
+  padding: 8px;
 }
 
-.greeting-languages div:nth-child(1) {
+.greeting-languages div:nth-child(1) i {
   color: #009c37;
 }
 
-.greeting-languages div:nth-child(2) {
+.greeting-languages div:nth-child(2) i {
   color: #141eea;
+}
+
+.greeting-languages div:hover i {
+  background-color: #d9d9d9;
+  border-radius: 1em;
 }
 
 .greeting-text-p {

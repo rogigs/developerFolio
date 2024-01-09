@@ -1,15 +1,21 @@
 import React, {useContext} from "react";
 import "./Skills.scss";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
-import {illustration, skillsSection} from "../../portfolio";
+import {illustration} from "../../portfolio";
 import {Fade} from "react-reveal";
 import codingPerson from "../../assets/lottie/codingPerson";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie";
 import StyleContext from "../../contexts/StyleContext";
+import {usePortfolio} from "../../hooks/usePortofolio";
+import {CONTAINERS, SHOW_CONTAINER} from "../../utils/containers";
+import emoji from "react-easy-emoji";
 
 export default function Skills() {
   const {isDark} = useContext(StyleContext);
-  if (!skillsSection.display) {
+  const {texts} = usePortfolio();
+  const {title, subTitle, skills} = texts(CONTAINERS.SKILLS_SECTION) || {};
+
+  if (!SHOW_CONTAINER[CONTAINERS.SKILLS_SECTION]) {
     return null;
   }
   return (
@@ -32,7 +38,7 @@ export default function Skills() {
             <h1
               className={isDark ? "dark-mode skills-heading" : "skills-heading"}
             >
-              {skillsSection.title}{" "}
+              {title}{" "}
             </h1>
             <p
               className={
@@ -41,11 +47,11 @@ export default function Skills() {
                   : "subTitle skills-text-subtitle"
               }
             >
-              {skillsSection.subTitle}
+              {subTitle}
             </p>
             <SoftwareSkill />
             <div>
-              {skillsSection.skills.map((skills, i) => {
+              {skills?.map((skills, i) => {
                 return (
                   <p
                     key={i}
@@ -55,7 +61,7 @@ export default function Skills() {
                         : "subTitle skills-text"
                     }
                   >
-                    {skills}
+                    {emoji(skills)}
                   </p>
                 );
               })}
