@@ -40,6 +40,31 @@
   color: $textColor !important;
 }
 
+.greeting-languages {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.greeting-languages div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.greeting-languages div i {
+  cursor: pointer;
+}
+
+.greeting-languages div:nth-child(1) {
+  color: #009c37;
+}
+
+.greeting-languages div:nth-child(2) {
+  color: #141eea;
+}
+
 .greeting-text-p {
   font-size: 30px;
   line-height: 40px;
