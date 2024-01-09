@@ -10,13 +10,15 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 12 * * 1" # see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events
+    - cron: "0 12 * * 1"
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
 
@@ -25,19 +27,24 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Set git config
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --global user.name "$(gh api /users/${GITHUB_ACTOR} | jq .name -r)"
+          git config -l
+
       - name: Update npm 🚀
         run: npm install -g npm@latest
 
-      - name: Install and Build 🔧 # Build the Project
+      - name: Install and Build 🔧
         run: |
           npm install
           npm run check-format
           npm run build
+
       - name: Deploy 🚀
         run: |
-          git config --global user.email "${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com"
-          git config --global user.name "${{ github.actor }}"
-          git remote set-url origin "https://${{ secrets.GITHUB_ACTOR }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-
           npm run predeploy
           npm run deploy
