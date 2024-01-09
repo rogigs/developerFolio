@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develop
+      - master
   schedule:
     - cron: "0 12 * * 1" # see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events
 jobs:
@@ -31,6 +31,7 @@ jobs:
       - name: Install and Build 🔧 # Build the Project
         run: |
           npm install
+          npm run check-format
           npm run build
       - name: Deploy 🚀
         run: |
