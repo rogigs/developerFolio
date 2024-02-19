@@ -21,7 +21,8 @@ const translations = {
     },
     [CONTAINERS.SOCIAL_MEDIA_LINKS]: {
       github: "https://github.com/rogigs",
-      linkedin: "https://www.linkedin.com/in/igor-gomes-developer/",
+      linkedin:
+        "https://www.linkedin.com/in/igor-gomes-developer/?locale=en_US",
       gmail: "igorgomes.13ig@gmail.com"
       // Instagram, Twitter and Kaggle are also supported in the links!
       // To customize icons and social links, tweak src/components/SocialMedia
