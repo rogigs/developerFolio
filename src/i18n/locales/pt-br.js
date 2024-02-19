@@ -100,13 +100,13 @@ const translations = {
       schools: [
         {
           schoolName: "Universidade Presbiteriana Mackenzie",
-          logo: "https://media.licdn.com/dms/image/C4D0BAQF5imeMDt71KQ/company-logo_100_100/0/1672861931450/mackenzie1870_logo?e=1707350400&v=beta&t=3YCJo6aVctFfqKgu8prZmWji0GlCPThiq3reTAeoyns",
+          logo: "https://media.licdn.com/dms/image/C4D0BAQF5imeMDt71KQ/company-logo_100_100/0/1672861931450/mackenzie1870_logo?e=1716422400&v=beta&t=WXp6sbFA4GZt7QZ3ZZLm3IcIlPbFdHisjQBot9koPbQ",
           subHeader: "Bacharelado em Sistemas de Informação",
           duration: "Agosto de 2019 - Julho de 2023"
         },
         {
           schoolName: "Instituto Técnico de Barueri Brasílio Flores de Azevedo",
-          logo: "https://media.licdn.com/dms/image/C4D0BAQGR2sLYI-Lysw/company-logo_100_100/0/1631372085688/itb_barueri_fieb_logo?e=1707350400&v=beta&t=WEtC2qUXy1jgaxwgI6H_t4idIej3PH8PfbQPx5bqDPE",
+          logo: "https://media.licdn.com/dms/image/C4D0BAQGR2sLYI-Lysw/company-logo_100_100/0/1631372085688/itb_barueri_fieb_logo?e=1716422400&v=beta&t=wusnrIKsAbIUhFLcgjXgqqejl26QxUVPfY4XHpKlTA4",
           subHeader: "Técnico em informática",
           duration: "Janeiro de 2016 - Dezembro de 2018"
         }
@@ -121,7 +121,7 @@ const translations = {
           role: "Desenvolvedor Front End",
           company: "Juntos Somos Mais",
           companylogo:
-            "https://media.licdn.com/dms/image/C4D0BAQHc-kpH9aocSw/company-logo_100_100/0/1630574382555/juntos_somos_mais_logo?e=1707350400&v=beta&t=BL3LCSvOWKw60q1FvOfdbgrwoHJpbblHFnP9o5tktN4",
+            "https://media.licdn.com/dms/image/C4D0BAQErtma_73Xbdw/company-logo_100_100/0/1675793211338/cromai_logo?e=1716422400&v=beta&t=9KNvW53txzxLWMr3TwgxMygZNBzrl7QUrrk65MTeMlg",
           date: "Maio de 2021 – Janeiro de 2023",
           descBullets: [
             "Integration as an active member of an agile development team, following methodologies such as Scrum and Kanban",
@@ -154,7 +154,7 @@ const translations = {
           role: "Estagiário em Desenvolvimento WEB",
           company: "Cromai",
           companylogo:
-            "https://media.licdn.com/dms/image/C4D0BAQErtma_73Xbdw/company-logo_100_100/0/1675793211338/cromai_logo?e=1707350400&v=beta&t=zavJABHwNlSaPsTt8ZqP40fEgg30Ma10mL0fjCJxuMA",
+            "https://media.licdn.com/dms/image/C4D0BAQErtma_73Xbdw/company-logo_100_100/0/1675793211338/cromai_logo?e=1716422400&v=beta&t=9KNvW53txzxLWMr3TwgxMygZNBzrl7QUrrk65MTeMlg",
           date: "Janeiro de 2020 – Maio 2021",
           descBullets: [
             "Integration as an active member of an agile development team, following methodologies such as Scrum and Kanban",

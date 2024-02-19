@@ -166,7 +166,7 @@ const workExperiences = {
       role: "Software Engineer Front End",
       company: "Juntos Somos Mais",
       companylogo:
-        "https://media.licdn.com/dms/image/C4D0BAQHc-kpH9aocSw/company-logo_100_100/0/1630574382555/juntos_somos_mais_logo?e=1707350400&v=beta&t=BL3LCSvOWKw60q1FvOfdbgrwoHJpbblHFnP9o5tktN4",
+        "https://media.licdn.com/dms/image/C4D0BAQHc-kpH9aocSw/company-logo_100_100/0/1630574382555/juntos_somos_mais_logo?e=1716422400&v=beta&t=5dwPAGYwRq25ypqoByPaV2dwiRGZwVWiFMv9s0US51k",
       date: "May 2021 – January 2023",
       descBullets: [
         "Integration as an active member of an agile development team, following methodologies such as Scrum and Kanban",
@@ -393,21 +393,21 @@ const twitterDetails = {
 const isHireable = true; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
 
 export {
-  illustration,
+  achievementSection,
+  bigProjects,
+  blogSection,
+  contactInfo,
+  educationInfo,
   greeting,
+  illustration,
+  isHireable,
+  openSource,
+  podcastSection,
+  skillsSection,
   socialMediaLinks,
   splashScreen,
-  skillsSection,
-  educationInfo,
-  techStack,
-  workExperiences,
-  openSource,
-  bigProjects,
-  achievementSection,
-  blogSection,
   talkSection,
-  podcastSection,
-  contactInfo,
+  techStack,
   twitterDetails,
-  isHireable
+  workExperiences
 };
